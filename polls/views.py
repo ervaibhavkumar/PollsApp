@@ -7,36 +7,36 @@ from django.views import generic
 
 # Create your views here.
 
-# def index(request):
-#     latest_ques = Question.objects.order_by('-pub_date')[:5]
-#     # template = loader.get_template('polls/index.html')
-#     context = {
-#         'latest_ques': latest_ques,
-#     }
-#     # output = ','.join([ q.question_text for q in latest_ques ])
-#     # return HttpResponse("Polls app")
-#     # return HttpResponse(output)
-#     # return HttpResponse(template.render(context, request))
-#     return render(request, 'polls/index.html', context)
+def index(request):
+    latest_ques = Question.objects.order_by('-pub_date')[:5]
+    # template = loader.get_template('polls/index.html')
+    context = {
+        'latest_ques': latest_ques,
+    }
+    # output = ','.join([ q.question_text for q in latest_ques ])
+    # return HttpResponse("Polls app")
+    # return HttpResponse(output)
+    # return HttpResponse(template.render(context, request))
+    return render(request, 'polls/index.html', context)
 
-# def detail(request, question_id):
-#     # try:
-#     #     question = Question.objects.get(pk=question_id)
-#     # except Question.DoesNotExist:
-#     #     return Http404("Question dows not exist")
+def detail(request, question_id):
+    # try:
+    #     question = Question.objects.get(pk=question_id)
+    # except Question.DoesNotExist:
+    #     return Http404("Question dows not exist")
 
-#     # return HttpResponse("Yoiu are looking at question %s." % question_id)
+    # return HttpResponse("Yoiu are looking at question %s." % question_id)
 
-#     # return render(request, 'polls/detail.html', { 'question': question })
+    # return render(request, 'polls/detail.html', { 'question': question })
 
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'polls/detail.html', { 'question': question })
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', { 'question': question })
 
-# def results(request, question_id):
+def results(request, question_id):
     # response = "You are looking at results of question %s."
     # return HttpResponse(response % question_id)
-    # question = get_object_or_404(Question, pk=question_id)
-    # return render(request, 'polls/results.html', {'question': question})
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
@@ -56,13 +56,13 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
     
-class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'latest_question_list'
+# class IndexView(generic.ListView):
+#     template_name = 'polls/index.html'
+#     context_object_name = 'latest_question_list'
 
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+#     def get_queryset(self):
+#         """Return the last five published questions."""
+#         return Question.objects.order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
