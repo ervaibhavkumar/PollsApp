@@ -1,1 +1,3 @@
-‣潐汬䅳灰਍਍桔獩爠灥獯瑩牯⁹潣瑮楡獮琠敨挠摯⁥潦汬睯湩⁧桴⁥佛晦捩慩⁬敷獢瑩⁥景䐠慪杮嵯栨瑴獰⼺搯捯⹳橤湡潧牰橯捥⹴潣⽭湥㈯ㄮ椯瑮潲琯瑵牯慩ぬ⼱ മ
+# PollsApp
+
+This repository contains the code following the [Official website of Django](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) .
